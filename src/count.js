@@ -5,10 +5,11 @@ class Count extends React.Component{
         super();
         this.state ={
             count:0,
-            name:`Qo'shamiz ayiramiz`,
-            changing:'input to change',
+            adding:`Qo'shamiz ayiramiz`,
             gender:'',
-            chek:''
+            chek:'',
+            name:'',
+            surname:''
         }
     }
     render(){
@@ -23,14 +24,15 @@ class Count extends React.Component{
             }
         }
 
-        const changingInput = (e) =>{
+       
+        const onChange = (e) => {
             console.log(e.target.value);
-            this.setState({changing:e.target.value})
+            this.setState({[e.target.name]:e.target.value})
         }
 
         const findGender = (e)=>{
             this.setState({gender:e.target.value})
-            console.log(e.target.value);
+                       
         }
 
         const onCheck =(e)=>{
@@ -40,19 +42,22 @@ class Count extends React.Component{
         return(
             <div className="state">
                 <div className="count">
-                <h1>{this.state.name}</h1>
+                <h1>{this.state.adding}</h1>
                  <h2>Sanoq:{this.state.count}</h2>
                  <button onClick={plus}>+</button>
                  <button onClick={minus}>-</button>
                 </div>
                 <div className="inp">
-                    <h1>Input handling: {this.state.changing}</h1>
-                    <input onChange={changingInput} type="text" placeholder="tap to change" /> <br /><br />
+                    <h1>Name: {this.state.name}</h1>
+                    <h1>Surname: {this.state.surname}</h1>
+                    <h1>Jinsi: {this.state.gender}</h1>
+                    <input name="name"  onChange={(e)=>{onChange(e)}} type="text" placeholder="Write your Name" /> <br /><br />
+                    <input name="surname" onChange={(e)=>{onChange(e)}} type="text" placeholder="Write your Surname" /> <br /><br />
 
                   <label htmlFor="Jins">Jins:  
                   <select onChange={findGender} name="Jins" id=""> 
-                    <option value="male">male</option>
-                    <option value="female">female</option>
+                    <option value="Erkak">Erkak</option>
+                    <option value="Ayol">Ayol</option>
                    </select>
                     <h1>Jinsi: {this.state.gender}</h1>
                   </label>

@@ -56,10 +56,11 @@ class Count extends React.Component{
 
                   <label htmlFor="Jins">Jins:  
                   <select onChange={findGender} name="Jins" id=""> 
+                    <option selected disabled value="">Tanlov</option>
                     <option value="Erkak">Erkak</option>
                     <option value="Ayol">Ayol</option>
                    </select>
-                    <h1>Jinsi: {this.state.gender}</h1>
+                   
                   </label>
 
                   <label htmlFor="Check"> Check
